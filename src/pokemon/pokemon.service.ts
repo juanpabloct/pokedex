@@ -30,7 +30,8 @@ export class PokemonService {
     const { offset, limit } = info;
     return this.PokemonModel.find()
       .limit(limit ?? 10)
-      .skip(offset);
+      .skip(offset)
+      .select('-__v');
   }
 
   async findOne(term: string) {
